@@ -1,24 +1,66 @@
-# CkyJsonLd
+# cky-json-ld
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0-beta.9.
+A small component to easily generate JSON-LD schema to index.html from route config.
 
-## Code scaffolding
+# Usage
 
-Run `ng generate component component-name --project cky-json-ld` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project cky-json-ld`.
-> Note: Don't forget to add `--project cky-json-ld` or else it will be added to the default project in your `angular.json` file. 
+- app.module.ts
 
-## Build
+  ```typescript
+  import { BrowserModule } from '@angular/platform-browser';
+  import { NgModule } from '@angular/core';
+  import { RouterModule, Routes } from '@angular/router';
+  import { CkyJsonLdModule, CkyJsonLdComponent } from 'cky-json-ld';
+  ...
 
-Run `ng build cky-json-ld` to build the project. The build artifacts will be stored in the `dist/` directory.
+  const routes: Routes = [
+    {
+      path: 'demo1',
+      component: Demo1Component
+      data: {
+        ld: {
+          '@context': 'http://schema.org',
+          '@type': 'WebSite',
+          name: 'DemoSite',
+          url: 'https://www.example.com'
+        }
+      }
+    },
+    {
+      path: 'demo2',
+      component: Demo2Component,
+    },
+    { path: '**', redirectTo: '/demo1', pathMatch: 'full' }
+  ];
 
-## Publishing
+  @NgModule({
+    declarations: [...],
+    imports: [BrowserModule, RouterModule.forRoot(routes), CkyJsonLdModule.forRoot()],
+    providers: [],
+    bootstrap: [AppComponent, CkyJsonLdComponent]
+  })
+  export class AppModule {}
 
-After building your library with `ng build cky-json-ld`, go to the dist folder `cd dist/cky-json-ld` and run `npm publish`.
+  ```
 
-## Running unit tests
+* index.html，add another component
 
-Run `ng test cky-json-ld` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  ```html
+  <body>
+    <app-root></app-root>
+    <!-- add this line -->
+    <cky-json-ld></cky-json-ld>
+  </body>
+  ```
 
-## Further help
+# API
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+By default, json-ld component will use key `ld` in route data, it can be changed by using `forRoot(<name>)`
+
+```typescript
+CkyJsonLdModule.forRoot('schema');
+```
+
+# License
+
+MIT © [CKY](https://twitter.com/yoKevinYang)
