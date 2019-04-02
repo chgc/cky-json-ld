@@ -1,5 +1,5 @@
 {
-  "name": "cky-json-ld",
+  "name": "@cky/json-ld",
   "repository": {
     "type": "git",
     "url": "https://github.com/chgc/cky-json-ld"
