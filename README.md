@@ -1,4 +1,4 @@
-# @cky/json-ld
+# cky-json-ld
 
 A small component to easily generate JSON-LD schema to index.html from route config.
 
@@ -10,7 +10,7 @@ A small component to easily generate JSON-LD schema to index.html from route con
   import { BrowserModule } from '@angular/platform-browser';
   import { NgModule } from '@angular/core';
   import { RouterModule, Routes } from '@angular/router';
-  import { CkyJsonLdModule, CkyJsonLdComponent } from '@cky/json-ld';
+  import { CkyJsonLdModule, CkyJsonLdComponent } from 'cky-json-ld';
   ...
 
   const routes: Routes = [
