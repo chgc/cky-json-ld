@@ -1,6 +1,6 @@
 {
   "name": "cky-json-ld",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -25,6 +25,8 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.800.0-beta.7",
+    "@angular-devkit/build-ng-packagr": "~0.800.0-beta.7",
     "@angular/cli": "~8.0.0-beta.9",
     "@angular/compiler-cli": "~8.0.0-beta.9",
     "@angular/language-service": "~8.0.0-beta.9",
@@ -39,6 +41,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "ng-packagr": "^5.0.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.13.1",
