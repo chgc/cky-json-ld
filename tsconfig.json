@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "cky-json-ld": [
+        "dist/cky-json-ld"
+      ],
+      "cky-json-ld/*": [
+        "dist/cky-json-ld/*"
+      ]
+    }
   }
 }
